@@ -1,0 +1,86 @@
+from time import sleep
+from random import randint
+import os
+vitoriajg = 0
+vitoriapc = 0
+empates = 0
+while True:
+  itens = ('Pedra','Papel','Tesoura')
+  pc = randint(0,2)
+  print('')
+  print('\033[1;35mo Computador irá jogar JOKENPO com você, escolha a sua opção !\033[m')
+  print('''\033[1;34m
+[ 0 ] PEDRA
+[ 1 ] PAPEL
+[ 2 ] TESOURA             
+      ''')
+  jg = int(input('Qual opção você escolhe? :\033[m '))
+  print('')
+  print('JO...')
+  sleep(0.8)
+  print('')
+  print('KEN...')
+  sleep(0.8)
+  print('')
+  print('PO.')
+  print('')
+  if pc == 0 : #PEDRA
+    if jg == 0:
+      print('EMPATE')
+      empates += 1
+    elif jg == 1:
+      print('\033[1;32mVITORIA DO JOGADOR\033[m')
+      vitoriajg += 1
+    elif jg == 2:
+      print('\033[1;31mVITORIA DO COMPUTADOR\033[m')
+      vitoriapc += 1
+    else:
+      print('VOCÊ NÃO ESCOLHEU NENHUM')
+      exit()
+  elif pc == 1: #PAPEL
+    if jg == 0:
+      print('\033[1;31mVITORIA DO COMPUTADOR\033[m')
+      vitoriapc += 1
+    elif jg == 1:
+      print('EMPATE') 
+      empates += 1
+    elif jg == 2:
+      print('\033[1;32mVITORIA DO JOGADOR\033[m')
+      vitoriajg += 1
+    else:
+      print('VOCÊ NÃO ESCOLHEU NENHUM')
+      exit()
+  elif pc == 2: #TESOURA
+    if jg == 0:
+      print('\033[1;32mVITORIA DO JOGADOR')
+      vitoriajg += 1
+    elif jg == 1:
+      print('\033[1;31mVITORIA DO COMPUTADOR')
+      vitoriapc += 1
+    elif jg == 2:
+      print('EMPATE')
+      empates += 1
+  else:
+   print('Você não escolheu nenhuma das opções, tente novamente ?')
+   exit()   
+  print('')
+  print('-=' * 15)
+  print('')
+  print('O COMPUTADOR JOGOU : {}'.format(itens[pc]))
+  print('O JOGADOR JOGOU : {} '.format(itens[jg]))
+  print('')
+  print('-=' * 15)
+  sleep(3)
+  novamente = int(input('''DESEJA JOGAR NOVAMENTE ? 
+  [1] - SIM
+  [2] - NÃO
+  
+  '''))
+  os.system('clear') or None
+  if novamente == 2:
+    print('VITORIAS DO JOGADOR = {}'.format(vitoriajg))
+    print('VITORIAS DO COMPUTADOR = {}'.format(vitoriapc))
+    print('EMPATES = {}'.format(empates))
+    sleep(3)
+    quit()
+
